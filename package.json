@@ -20,5 +20,13 @@
     "chromedriver": "^108.0.0",
     "geckodriver": "^3.2.0",
     "selenium-webdriver": "^4.7.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lillybee13/melissaCook-solo-capstone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lillybee13/melissaCook-solo-capstone/issues"
+  },
+  "homepage": "https://github.com/lillybee13/melissaCook-solo-capstone#readme"
 }

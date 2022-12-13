@@ -34,7 +34,7 @@ export class BasePage {
 
     async click(elementBy: By): Promise<void> {
         return (await this.getElement(elementBy)).click();
-    }
+    }  
 
     async setInput(elementBy: By, keys: any): Promise<void> {
         let input = await this.getElement(elementBy);
@@ -50,4 +50,13 @@ export class BasePage {
     async getAttribute(elementBy: By, attribute: string): Promise<string> {
         return (await this.getElement(elementBy)).getAttribute(attribute);
     }
+
+    async tabs() {
+        let myTabs = await this.driver.getAllWindowHandles()
+        await this.driver.switchTo().window(myTabs[1]); //new tab (2nd one)
+        await this.driver.sleep(1000);
+        await this.driver.close() //'close' closes a tab while quit 'closes the broswer'
+        await this.driver.switchTo().window(myTabs[0]) //back to original tab
+    }
+
 }
