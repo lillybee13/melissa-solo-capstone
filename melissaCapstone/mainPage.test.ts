@@ -1,5 +1,5 @@
 import {By} from 'selenium-webdriver'
-import {Pokemon} from "./pageObject";
+import {Pokemon} from "./mainPage";
 const pokemon = new Pokemon
 
 let sort: string [] = ['A-Z', '#', 'Shuffle']
