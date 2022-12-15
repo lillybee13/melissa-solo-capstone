@@ -6,9 +6,9 @@ let sort: string [] = ['A-Z', '#', 'Shuffle']
 let types: string[] = ['Normal', 'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass','Electric', 'Psychic','Ice','Dragon', 'Dark', 'Fairy']
 let gen: string[] = ['Gen 1', 'Gen 2', 'Gen 3']
 
-describe ("Testing home page", () => {
+describe ("Testing functionality", () => {
 
-    test ("search for Pikachu", async () => {
+    test ("Search for Pikachu", async () => {
         await pokemon.navigate()
         await pokemon.search("Pikachu")
         await pokemon.click(pokemon.searchBtn)
