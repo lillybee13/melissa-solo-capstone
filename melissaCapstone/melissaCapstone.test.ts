@@ -1,18 +1,17 @@
 import {By} from 'selenium-webdriver'
-import {Pokemon} from "./mainPage";
+import {Pokemon} from "./pageObject";
 const pokemon = new Pokemon
 
 let sort: string [] = ['A-Z', '#', 'Shuffle']
 let types: string[] = ['Normal', 'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass','Electric', 'Psychic','Ice','Dragon', 'Dark', 'Fairy']
 let gen: string[] = ['Gen 1', 'Gen 2', 'Gen 3']
 
-describe ("Testing main page", () => {
+describe ("Testing home page", () => {
 
     test ("search for Pikachu", async () => {
         await pokemon.navigate()
         await pokemon.search("Pikachu")
         await pokemon.click(pokemon.searchBtn)
-        await pokemon.driver.sleep(1000)
         await pokemon.click(pokemon.gmpSearch)
     })
 
@@ -37,9 +36,23 @@ describe ("Testing main page", () => {
         }) 
     })
 
-    test ("Play Memory Button", async () => {
+   test ("1 player", async () => {
         await pokemon.click(pokemon.play)
-        await pokemon.driver.sleep(1000)
-        await pokemon.driver.quit()
-        })
+        await pokemon.click(pokemon.cardOne)
+        await pokemon.click(pokemon.cardTwo)
+        await pokemon.click(pokemon.noMatch)
+        await pokemon.click(pokemon.resetBtn)
     })
+
+    test ("2 player", async () => {
+        await pokemon.click(pokemon.twoPlayers)
+        await pokemon.click(pokemon.cardOne)
+        await pokemon.click(pokemon.cardTwo)
+        await pokemon.click(pokemon.noMatch)
+        await pokemon.click(pokemon.cardOne)
+        await pokemon.click(pokemon.cardTwo)
+        await pokemon.click(pokemon.noMatch)
+        await pokemon.click(pokemon.stop)
+        await pokemon.driver.quit()
+    })
+})
